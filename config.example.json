@@ -1,0 +1,13 @@
+{
+  "luckfox": [
+    {
+      "name": "Luckfox wrist camera",
+      "serial": "REPLACE_WITH_ADB_SERIAL",
+      "port": 18554,
+      "stream": 1
+    }
+  ],
+  "realsense": {
+    "serial": "REPLACE_WITH_REALSENSE_SERIAL"
+  }
+}

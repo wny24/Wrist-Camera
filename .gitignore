@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+config.local.json
+output/
+snapshots/
+logs/
+backups/
+*.log
+.env

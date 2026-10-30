@@ -1,0 +1,23 @@
+[project]
+name = "wrist-cam"
+version = "0.1.0"
+description = "USB Luckfox camera streaming and Python RealSense RGB comparison tools"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "av==19.0.2",
+    "numpy==2.5.4",
+    "pillow==13.0.0",
+    "pyrealsense2==2.59.1.11053",
+    "psutil==7.2.2",
+    "paramiko==4.0.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8,<10",
+    "ruff>=0.17.3",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["tools", "player"]
+testpaths = ["tests", "player"]

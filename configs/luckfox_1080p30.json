@@ -1,0 +1,24 @@
+{
+  "video.source": {
+    "enable_venc_0": "0",
+    "enable_venc_1": "1",
+    "enable_jpeg": "0"
+  },
+  "video.1": {
+    "input_buffer_count": "2",
+    "max_width": "1920",
+    "max_height": "1080",
+    "width": "1920",
+    "height": "1080",
+    "buffer_size": "1036800",
+    "src_frame_rate_num": "30",
+    "src_frame_rate_den": "1",
+    "dst_frame_rate_num": "30",
+    "dst_frame_rate_den": "1",
+    "output_data_type": "H.265",
+    "max_rate": "2048",
+    "mid_rate": "1024"
+  },
+  "isp.0.adjustment": {"fps": "30"},
+  "isp.1.adjustment": {"fps": "30"}
+}
