@@ -1,5 +1,7 @@
 # 实验室相机快速使用
 
+首次安装相机、开发板和腕部支架，请先看 [硬件组装指南](hardware-assembly-zh.md)，完成接线与机械检查后再运行软件。
+
 首次使用先运行 `bash scripts/setup.sh`，然后填写 `config.local.json` 中的设备序列号。Luckfox 用 `adb devices -l` 查询，RealSense 用 Viewer 或 `rs-enumerate-devices` 查询。设备按序列号识别，换 USB 线和插口无需改配置，换板子则需要更新序列号。
 
 ## 实时对比

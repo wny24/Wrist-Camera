@@ -1,9 +1,11 @@
+# Python environments and caches (including hardware/.venv)
 .venv/
 __pycache__/
 *.py[cod]
 *.egg-info/
 .pytest_cache/
 .ruff_cache/
+# Local device configuration and generated data
 config.local.json
 output/
 snapshots/
@@ -11,3 +13,10 @@ logs/
 backups/
 *.log
 .env
+
+# Editor and desktop temporary files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~

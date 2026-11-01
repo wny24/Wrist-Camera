@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="wrist_camera_exploded">
+  <compiler angle="radian" meshdir="meshes" />
+  <visual>
+    <global offwidth="1600" offheight="1200" />
+    <headlight ambient=".5 .5 .5" diffuse=".7 .7 .7" />
+    <rgba haze="1 1 1 1" />
+  </visual>
+  <asset>
+    <mesh name="08_base_link" content_type="model/stl" file="08_base_link.stl" />
+    <mesh name="09_left_outer_knuckle" content_type="model/stl" file="09_left_outer_knuckle.stl" />
+    <mesh name="10_left_finger" content_type="model/stl" file="10_left_finger.stl" />
+    <mesh name="11_left_inner_knuckle" content_type="model/stl" file="11_left_inner_knuckle.stl" />
+    <mesh name="12_right_outer_knuckle" content_type="model/stl" file="12_right_outer_knuckle.stl" />
+    <mesh name="13_right_finger" content_type="model/stl" file="13_right_finger.stl" />
+    <mesh name="14_right_inner_knuckle" content_type="model/stl" file="14_right_inner_knuckle.stl" />
+    <mesh name="15_ufacotry_xarm_d435_stand" content_type="model/stl" file="../../cad/recessed_camera_plate.stl" scale=".001 .001 .001" />
+    <mesh name="16_camera_pcb" content_type="model/stl" file="16_camera_pcb.stl" />
+    <mesh name="link7_visual_0" content_type="model/stl" file="link7_visual_0.stl" />
+  </asset>
+  <worldbody>
+    <light pos="0 -1 1" dir="0 1 -1" directional="true" />
+    <body name="wrist">
+      <geom quat="1 0 0 0" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.753 0.753 0.753 1" density="0" mesh="link7_visual_0" />
+      <body name="link_eef" pos="0 0 0.23">
+        <body name="xarm_gripper_base_link">
+          <geom type="mesh" contype="0" conaffinity="0" group="2" rgba="1 1 1 1" density="0" mesh="08_base_link" />
+          <body name="left_outer_knuckle" pos="0 0.035 0.059098">
+            <geom quat="1 0 0 0" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.753 0.753 0.753 1" density="0" mesh="09_left_outer_knuckle" />
+            <body name="left_finger" pos="0 0.035465 0.042039">
+              <geom quat="1 0 0 0" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.753 0.753 0.753 1" density="0" mesh="10_left_finger" />
+              <body name="left_finger_tip" pos="0 -0.024 0.029" />
+            </body>
+          </body>
+          <body name="left_inner_knuckle" pos="0 0.02 0.074098">
+            <geom quat="1 0 0 0" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.753 0.753 0.753 1" density="0" mesh="11_left_inner_knuckle" />
+          </body>
+          <body name="right_outer_knuckle" pos="0 -0.035 0.059098">
+            <geom quat="1 0 0 0" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.753 0.753 0.753 1" density="0" mesh="12_right_outer_knuckle" />
+            <body name="right_finger" pos="0 -0.035465 0.042039">
+              <geom quat="1 0 0 0" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.753 0.753 0.753 1" density="0" mesh="13_right_finger" />
+              <body name="right_finger_tip" pos="0 0.024 0.029" />
+            </body>
+          </body>
+          <body name="right_inner_knuckle" pos="0 -0.02 0.074098">
+            <geom quat="1 0 0 0" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.753 0.753 0.753 1" density="0" mesh="14_right_inner_knuckle" />
+          </body>
+          <body name="link_tcp" pos="0 0 0.172" />
+        </body>
+      </body>
+      <body name="wrist_camera_plate" quat="0 0 0 1" pos="0 0 0.085">
+        <geom name="camera_plate" pos="0 0 0" quat="1 0 0 0" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.65 0.72 0.78 1" density="0" mesh="15_ufacotry_xarm_d435_stand" />
+        <body name="wrist_camera_housing" pos="0.0589111757667 1.70306229699e-07 0.0962753272829" quat="0.69034552708 -0.153045918733 -0.153045918733 0.69034552708">
+          <geom name="camera_pcb" quat="1 0 0 0" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.06 0.09 0.08 1" density="0" mesh="16_camera_pcb" />
+          <geom name="camera_lens_barrel" size="0.007 0.011225" pos="0 0 0.012425" type="cylinder" contype="0" conaffinity="0" group="2" rgba="0.07 0.07 0.08 1" density="0" />
+          <geom name="camera_lens_glass" size="0.0055 0.0001" pos="0 0 0.02385" type="cylinder" contype="0" conaffinity="0" group="2" rgba="0.04 0.23 0.3 1" density="0" />
+          <geom name="camera_rear_connector" size="0.0071 0.002 0.001" pos="0 -0.01325 -0.001" type="box" contype="0" conaffinity="0" group="2" rgba="0.8 0.8 0.76 1" density="0" />
+          <geom name="camera_m2_head_0" size="0.0018 0.0008" pos="-0.0105 -0.00675 0.002" type="cylinder" contype="0" conaffinity="0" group="2" rgba="0.3 0.31 0.32 1" density="0" />
+          <geom name="camera_insert_0" size="0.0015 0.003" pos="-0.0105 -0.00675 -0.063" type="cylinder" contype="0" conaffinity="0" group="2" rgba="0.67 0.48 0.18 1" density="0" />
+          <geom name="camera_m2_head_1" size="0.0018 0.0008" pos="-0.0105 0.00675 0.002" type="cylinder" contype="0" conaffinity="0" group="2" rgba="0.3 0.31 0.32 1" density="0" />
+          <geom name="camera_insert_1" size="0.0015 0.003" pos="-0.0105 0.00675 -0.063" type="cylinder" contype="0" conaffinity="0" group="2" rgba="0.67 0.48 0.18 1" density="0" />
+          <geom name="camera_m2_head_2" size="0.0018 0.0008" pos="0.0105 -0.00675 0.002" type="cylinder" contype="0" conaffinity="0" group="2" rgba="0.3 0.31 0.32 1" density="0" />
+          <geom name="camera_insert_2" size="0.0015 0.003" pos="0.0105 -0.00675 -0.063" type="cylinder" contype="0" conaffinity="0" group="2" rgba="0.67 0.48 0.18 1" density="0" />
+          <geom name="camera_m2_head_3" size="0.0018 0.0008" pos="0.0105 0.00675 0.002" type="cylinder" contype="0" conaffinity="0" group="2" rgba="0.3 0.31 0.32 1" density="0" />
+          <geom name="camera_insert_3" size="0.0015 0.003" pos="0.0105 0.00675 -0.063" type="cylinder" contype="0" conaffinity="0" group="2" rgba="0.67 0.48 0.18 1" density="0" />
+        </body>
+        <body name="controller_pcb" pos="0.1412261826174 -0.025 0.0159369221296" quat="0.707107 0.707107 0 0">
+          <geom name="controller_board" size="0.015 0.01 0.0006" pos="0 0 0.0075" type="box" contype="0" conaffinity="0" group="2" rgba="0.07 0.2 0.16 1" density="0" />
+          <geom name="controller_component_envelope_-1" size="0.012 0.008 0.0017" pos="0 0 0.0052" type="box" contype="0" conaffinity="0" group="2" rgba="0.1 0.11 0.12 1" density="0" />
+          <geom name="controller_component_envelope_1" size="0.012 0.008 0.0017" pos="0 0 0.0098" type="box" contype="0" conaffinity="0" group="2" rgba="0.1 0.11 0.12 1" density="0" />
+          <geom name="controller_usb_socket" size="0.0015 0.0045 0.0015" pos="0.0135 0 0.01" type="box" contype="0" conaffinity="0" group="2" rgba="0.65 0.67 0.68 1" density="0" />
+          <geom name="controller_ffc_socket" size="0.0015 0.008 0.001" pos="-0.0135 0 0.0095" type="box" contype="0" conaffinity="0" group="2" rgba="0.8 0.78 0.69 1" density="0" />
+        </body>
+        <body name="clamp_bolt" pos="-.044 -0.034 -.012" quat=".70710678 -.70710678 0 0">
+          <geom type="cylinder" size=".0015 .007" pos="0 0 .007" rgba=".25 .27 .30 1" />
+          <geom type="cylinder" size=".0027 .0015" rgba=".25 .27 .30 1" />
+        </body>
+        <body name="clamp_nut" pos="-.044 0.0315 -.012" quat=".70710678 -.70710678 0 0">
+          <geom type="cylinder" size=".003 .0012" rgba=".65 .66 .68 1" />
+        </body>
+      </body>
+    </body>
+    <geom type="capsule" fromto="0 0 0 0 0 .23" size=".0006" rgba=".8 .5 .15 .5" />
+  </worldbody>
+</mujoco>

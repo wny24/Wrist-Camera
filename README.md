@@ -6,6 +6,8 @@ The tested configuration delivers **1920 × 1080 at approximately 30 fps** from 
 
 ## Setup
 
+For the printed wrist mount, parts list, wiring and assembly checks, see the [中文硬件组装指南](docs/hardware-assembly-zh.md).
+
 Tested on Linux x86-64 with Python 3.12. A graphical desktop is required for the viewers; benchmarks can run without one.
 
 1. Install [uv](https://docs.astral.sh/uv/getting-started/installation/) and OS dependencies. On Ubuntu:
@@ -90,7 +92,30 @@ bash scripts/play.sh            # FFplay-based viewer with ADB SoC temperature
 
 Add Luckfox entries with unique serials and local ports to `config.local.json` to use multiple cameras. The FFplay viewer opens one window per entry. The Python comparison selects one Luckfox entry plus one RealSense. USB connector position does not determine identity; the board serial does.
 
-The original CameraPlayer v5.1 code supplied for this project is retained in `player/`, including its diagnostic, temperature and reconnect tests. It also supports optional SSH temperature retrieval, but the USB launcher uses ADB and requires no SSH password.
+The original CameraPlayer v5.1 code supplied for this project is retained in `player/`, with diagnostic, temperature and reconnect tests in `tests/player/`. It also supports optional SSH temperature retrieval, but the USB launcher uses ADB and requires no SSH password.
+
+## Project guide
+
+| Documentation | Contents |
+| --- | --- |
+| [Hardware assembly (中文)](docs/hardware-assembly-zh.md) | Parts, printing, wiring and wrist installation |
+| [Quick start (中文)](docs/usage-zh.md) | Preview, device configuration and troubleshooting |
+| [1080p30 configuration](docs/luckfox-30fps.md) | Tested firmware settings and rollback |
+| [Benchmark results](docs/benchmark-results.md) | Measured FPS and test conditions |
+| [Timestamps](docs/timestamps.md) | Time domains and pairing limitations |
+| [Hardware files](hardware/README.md) | CAD, simulation scenes, rendering and model attribution |
+
+```text
+configs/       Shared camera profiles
+docs/          Guides and documentation images
+hardware/      CAD, simulation, rendering tools and third-party licenses
+player/        CameraPlayer runtime modules
+scripts/       Shell entry points for setup, viewing and benchmarks
+tests/         Tool tests and CameraPlayer tests
+tools/         Capture, configuration and timestamp utilities
+```
+
+`config.example.json` is the device-configuration template; edit the ignored `config.local.json` for your own devices. Generated captures, results and board backups belong in the ignored `output/` directory. Python dependencies are declared in `pyproject.toml` and locked in `uv.lock`; optional hardware-rendering dependencies are separate in `hardware/requirements-render.txt`.
 
 ## Development and troubleshooting
 
