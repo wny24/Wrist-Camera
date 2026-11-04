@@ -1,99 +1,164 @@
-# Wrist Camera 硬件组装指南
+# Wrist Camera Hardware Assembly Guide
 
-将 **Waveshare SC3336 3MP Camera + Luckfox Pico Mini（RV1103）** 安装到 xArm / G2 夹爪腕部。相机用螺钉固定，开发板用热熔胶粘在侧面卡槽中。
+**A low-cost xArm7 wrist camera for robot learning · Hardware assembly guide**
 
-[硬件文件与仿真说明](../hardware/README.md) · [软件使用说明](usage-zh.md)
+Build a wrist-mounted RGB camera using an SC3336 camera, a Luckfox Pico Mini, and a one-piece printed mount. Follow the photographs below to assemble the camera on the bench, then install it on the xArm7 wrist.
 
-## 1. 准备物料
+<div style="display: flex; align-items: flex-start; gap: 2%;">
+  <div style="width: 74%; text-align: center;">
+    <img src="assets/hardware/assembly/10.jpg" width="100%" alt="Wrist camera after bench assembly">
+    <br>
+    <em>(a) Desktop assembly</em>
+  </div>
+  <div style="width: 23.44%; text-align: center;">
+    <img src="assets/hardware/final.png" width="100%" alt="Wrist camera mounted on xArm7, before attaching the gripper">
+    <br>
+    <em>(b) Mounted on xArm7</em>
+  </div>
+</div>
 
-数量按一套计算。相机与 Mini 的 A/B 子版本尚未记录，购买前请核对下节尺寸及接口。
+## Resources
 
-| 物料 | 数量 | 规格 |
-| --- | --- | --- |
-| 一体打印支架 | 1 | [STL](../hardware/cad/recessed_camera_plate.stl) / [可编辑 STEP](../hardware/cad/recessed_camera_plate.step) |
-| 摄像头 | 1 | [Waveshare SC3336 3MP Camera](https://wiki.luckfox.com/SC3336-3MP-Camera/)，彩色 CSI 模块 |
-| 开发板 | 1 | [Luckfox Pico Mini（RV1103）](https://wiki.luckfox.com/Luckfox-Pico-Plus-Mini/)，按 A/B 版本准备启动介质和固件 |
-| CSI 排线 | 1 | 优先使用相机配套线，确认针数、间距及触点方向 |
-| USB 数据线 | 1 | 开发板端 Type-C，支持数据传输 |
-| M2 螺纹嵌件 | 4 | 内螺纹 M2、外径 3 mm、长 6 mm |
-| M2 机螺钉 | 4 | 长度按 PCB、必要的绝缘垫片和嵌件深度选择，不能顶底 |
-| M3 夹紧螺栓、螺母 | 各 1 | 用于腕部套环，长度按实物选择 |
-| 热熔胶、扎带 | 适量 | 固定开发板和 USB 线 |
-
-工具：胶枪、卡尺、匹配的螺丝刀/内六角扳手、去毛刺工具，以及与嵌件类型匹配的安装工具。
-
-## 2. 打印与试装
-
-![支架两侧视图](assets/hardware/bracket-current.png)
-
-支架的大环套在腕部，倾斜四孔座安装相机，侧面卡槽放开发板。三者为一个打印件。
-
-STL 单位为 **mm**，导入切片软件后的原始 XYZ 尺寸应为 **155.15 × 91.20 × 66.63 mm**。以下是 CAD 设计值，打印前用实物核对：
-
-| 部位 | 尺寸 |
+| Resource | Link |
 | --- | --- |
-| 相机 PCB / 四孔中心距 | 25 × 24 × 1.2 mm / 21 × 13.5 mm |
-| 相机背面留空 | 3 mm，器件和接头不能受压 |
-| 嵌件孔 | 直径 3 mm、深 6.2 mm，先用样块验证配合 |
-| 开发板外包络 | 30 × 20 × 8 mm，包含元件厚度 |
-| 开发板卡槽 | 宽 22.8 mm、高 8.4 mm |
+| Hardware & Code | [Project home](../README.md) · [Hardware files](../hardware/README.md) |
+| Software Guide | [Usage guide](usage-zh.md) · [1080p30 configuration](luckfox-30fps.md) |
+| Hardware Reference | [SC3336 camera](https://wiki.luckfox.com/SC3336-3MP-Camera/) · [Luckfox Pico Mini](https://wiki.luckfox.com/Luckfox-Pico-Plus-Mini/) |
+| Contact | [Project issues](https://github.com/IEILab/wrist-cam/issues); include the board variant, symptoms, and assembly photos |
 
-[相机孔距与嵌件剖面图](assets/hardware/camera-mount-dimensions.png)
+## Bill of Materials
 
-可用 PETG、0.2 mm 层高、4 道壁、约 40% 填充作为首件试打起点，按打印机调整层向和支撑；这些参数尚未经过实物验证。打印后去除毛刺，确认四孔对齐、开发板能放入且元件不碰槽壁。
+Quantities are for one wrist camera, excluding the robot arm, gripper, and host computer.
 
-## 3. 分步组装
+| ID | Part Name | Quantity | Link / Specification | Price / Unit |
+| --- | --- | --- | --- | --- |
+| **Camera and processing board** | | | | |
+| 1 | Waveshare SC3336 3MP Camera | 1 | https://wiki.luckfox.com/SC3336-3MP-Camera/ | about $7 |
+| 2 | Luckfox Pico Mini (RV1103) | 1 | https://wiki.luckfox.com/Luckfox-Pico-Plus-Mini/, variant B | about $13 |
+| 3 | CSI ribbon cable | 1 | https://e.tb.cn/h.jTi83zp3CI29jCF?tk=TZFV6baraw3 | about $0.3 |
+| **Mount and fasteners** | | | | |
+| 4 | One-piece printed mount | 1 | [STL link](../hardware/cad/recessed_camera_plate.stl) | To be added |
+| 5 | M2 threaded inserts | 4 | M2 internal thread, 3.5 mm outer diameter, 4 mm length | about $0.11 |
+| 6 | M2 machine screws | 4 | 2 mm thread diameter, 5 mm length | about $0.11 |
+| 7 | M3 clamp bolt and nut | 1 each | 18 mm bolt length | about $0.11 |
+| **Tools and supplies** | | | | |
+| 8 | USB Type-C data cable | 1 | Data-capable cable long enough for the required motion range | Not listed |
+| 9 | Hot-melt glue | As needed | Board retention, cable strain relief, and PCB insulation | Not listed |
+| 10 | Soldering iron | 1 | Heat-set insert installation; use a tip suitable for the inserts | Not listed |
+| 11 | Hot-glue gun | 1 | Apply small glue spots to secure the board | Not listed |
 
-### A. 桌面接线，确认出图
 
-1. **断电连接 CSI 排线。** 均匀打开锁扣，平直插入排线后锁好。Mini 板端蓝色加强片朝芯片侧；以[官方 Mini 接线图](https://wiki.luckfox.com/Luckfox-Pico-Plus-Mini/CSI-Camera/)和实际触点为准，相机端单独核对。
-2. 接 USB，按 [软件使用说明](usage-zh.md)配置序列号并运行 `bash scripts/play.sh`。新板先按[官方烧录说明](https://wiki.luckfox.com/Luckfox-Pico-Plus-Mini/Flash-image/)安装对应固件。
-3. 确认画面持续更新，再断电进行机械安装。本项目通过 ADB 转发 RTSP 取流，RealSense 仅用于可选对比。
+## Hardware Related Files
 
-### B. 安装嵌件
+| Part / File | Link | Purpose |
+| --- | --- | --- |
+| Wrist mount | [STL](../hardware/cad/recessed_camera_plate.stl) | Ready for slicing and printing; units: mm |
+| Editable mount | [STEP](../hardware/cad/recessed_camera_plate.step) | Modify the mounting geometry |
 
-1. 在支架四个相机安装孔中安装 M2 嵌件，保持垂直、端面齐平。热熔安装时先用样块确定温度和压入量。
-2. 完全冷却后，用螺钉轻拧检查：嵌件不跟转，支撑柱不开裂。
+This design uses an off-the-shelf camera and processing board; no custom PCB is required. See the [hardware file guide](../hardware/README.md) for model dimensions and units.
 
-### C. 固定相机
+## Camera Assembly Step-by-Step Guide
 
-1. 镜头朝向工作区，四孔对准嵌件，给排线接头留出操作空间。
-2. 按「螺钉 → 必要的绝缘垫片 → PCB → 嵌件」安装，四颗螺钉先轻旋入，再交叉拧紧至相机不晃动。
-3. 确认 PCB 平整、背面器件不受压。螺钉长度应有足够啮合且不顶底；**嵌件长 6 mm 不代表应选 M2×6 螺钉**。
+### Overview of Materials
 
-### D. 用热熔胶固定开发板
+Lay out the printed mount, camera, board, ribbon cable, and fasteners. Deburr the mount, test-fit the board, and check the four camera mounting holes. Keep power disconnected during assembly and when connecting or disconnecting the CSI ribbon cable.
 
-1. 断电后将开发板放入侧面卡槽，USB 朝方便插线的一端。试插 USB，确认插头能到底，再拔下。
-2. 接好 CSI 排线，留自然弯曲的余量。在 **PCB 边缘与槽壁接触处**点少量热熔胶，先固定一侧，冷却后补另一侧。
-3. 胶枪嘴不碰 PCB，胶不覆盖芯片、接口、锁扣和按键。完全冷却后轻推板子，确认不滑动。
+<p align="center">
+  <img src="assets/hardware/assembly/01.jpg" width="760" alt="Bench overview of the mount, camera, board, ribbon cable, fasteners, and tools">
+  <br><em>Figure 1 · Main components and assembly tools.</em>
+</p>
 
-### E. 安装到机械臂腕部
+### Step 1 — Connect the Camera and Board
 
-![装配爆炸图](assets/hardware/exploded.png)
+Open the camera connector latch, insert the CSI ribbon cable straight, and close the latch. Then connect the other end to the board. Check the metal contact orientation at each end rather than relying only on the blue stiffener. For the Mini board, follow the [official CSI connection diagram](https://wiki.luckfox.com/Luckfox-Pico-Plus-Mini/CSI-Camera/).
 
-图中：① 腕部、② 支架、③ G2 夹爪、④ 相机、⑤ 开发板、⑥ M3 夹紧螺栓与螺母。箭头表示支架套入和开发板插入方向。
+<table>
+  <tr>
+    <td width="50%"><img src="assets/hardware/assembly/02.jpg" alt="Insert the CSI ribbon cable into the camera connector"></td>
+    <td width="50%"><img src="assets/hardware/assembly/03.jpg" alt="Connect the other end of the ribbon cable to the Luckfox board"></td>
+  </tr>
+  <tr><td align="center">Figure 2 · Connect the camera end.</td><td align="center">Figure 3 · Connect the board end.</td></tr>
+</table>
 
-1. **取下夹爪。** 机械臂停止并按设备要求断电，托住夹爪，断开连线，拆下原固定螺丝。夹爪整体取下，保留螺丝。
-2. **套入支架。** 从夹爪安装端将大圆孔套过腕部前端，转到相机朝工作区、窗口露出腕部接口的位置，再轻推到位。不要掰开套环从侧面硬扣。
-3. **夹紧套环。** M3 螺母放入侧面六角槽，从另一侧穿入螺栓，慢慢拧到支架轻推不转，避免拧裂塑料。
-4. **装回夹爪。** 对准原安装面，用原螺丝按厂商要求固定，接回连线。若支架顶住夹爪、安装面无法贴合，取下检查，不要靠螺丝硬压。
 
-![装配完成视图](assets/hardware/assembled.png)
+### Step 2 — Install the Threaded Hardware
 
-图为 MuJoCo 几何示意，排线和胶点未绘出；紧固件外形简化，不能据此确定螺丝长度或判定无干涉。场景与复现方法见 [hardware/](../hardware/README.md)。
+Install the four M2 inserts perpendicular to the camera plate, with their ends flush with the mounting surfaces. Place the M3 nut in the hexagonal recess on the side of the wrist ring, aligning it so the bolt threads in straight.
 
-### F. 固定线缆
+<table>
+  <tr>
+    <td width="50%"><img src="assets/hardware/assembly/04.jpg" alt="Install threaded inserts in the camera plate using a soldering iron"></td>
+    <td width="50%"><img src="assets/hardware/assembly/05.jpg" alt="Install the nut in the side of the wrist ring"></td>
+  </tr>
+  <tr><td align="center">Figure 4 · Install the camera plate inserts.</td><td align="center">Figure 5 · Position the wrist ring nut.</td></tr>
+</table>
 
-用扎带将 USB 线固定到支架或邻近结构，让插座和胶点不承受拉力。腕部活动处留足余量，避免线缆进入夹爪或关节缝隙。
 
-## 4. 上机检查
+### Step 3 — Secure the Board
 
-- [ ] 相机、开发板和支架均不松动，胶已冷却，PCB 无弯曲或器件受压。
-- [ ] CSI 两端锁紧，USB 插到底，排线无死折，线缆不绷紧。
-- [ ] 夹爪安装面贴合，支架不挡接口，不碰夹爪及运动件。
-- [ ] 在工作距离对焦，图像方向正确，关键视场无遮挡。
-- [ ] 建议连续预览 10 分钟，再低速、无负载检查任务所需姿态及夹爪开合；出现掉线、拉扯或滑移立即停止。
+Test-fit the board in the side holder. Check that the USB plug can be fully inserted and that components do not touch the holder walls, then remove the board. Apply small glue spots where the holder meets the PCB edges. Put the board back, hold it in position, and let the glue cool completely.
 
-照片、序列号、固件版本和装配记录可存入本地 `output/`。需要相机外参的任务，应在最终锁紧后标定；改变安装姿态后重新检查。
+<table>
+  <tr>
+    <td width="50%"><img src="assets/hardware/assembly/06.jpg" alt="Apply small glue spots to the board holder"></td>
+    <td width="50%"><img src="assets/hardware/assembly/07.jpg" alt="Place the board with its ribbon cable attached into the holder"></td>
+  </tr>
+  <tr><td align="center">Figure 6 · Apply glue at the contact points.</td><td align="center">Figure 7 · Position and secure the board.</td></tr>
+</table>
 
-取流问题见 [软件使用说明](usage-zh.md)，1080p30 设置见 [帧率配置](luckfox-30fps.md)。
+
+### Step 4 — Mount the Camera
+
+Point the lens toward the workspace and align the four holes with the camera plate inserts. Start all four screws loosely, then tighten them in a diagonal sequence until the camera no longer moves.
+
+<p align="center">
+  <img src="assets/hardware/assembly/08.jpg" width="760" alt="Fasten the camera PCB to the printed mount with a screwdriver">
+  <br><em>Figure 8 · Secure the camera without bending the PCB or pressing on components underneath.</em>
+</p>
+
+### Step 5 — Fit the Clamp Bolt
+
+Insert the M3 bolt from the opposite side of the ring and thread it gently into the nut to check engagement. Leave it loose enough to slide the ring onto the wrist; do not tighten the clamp yet.
+
+<table>
+  <tr>
+    <td width="50%"><img src="assets/hardware/assembly/09.jpg" alt="Fit the clamp bolt on the side of the wrist ring"></td>
+    <td width="50%"><img src="assets/hardware/assembly/10.jpg" alt="Wrist camera assembly completed on the bench"></td>
+  </tr>
+  <tr><td align="center">Figure 9 · Fit the clamp bolt.</td><td align="center">Figure 10 · Bench assembly complete.</td></tr>
+</table>
+
+### Step 6 — Install on xArm7
+
+After completing the bench assembly, install the camera assembly on the xArm7 wrist. The photos below show the final clamping operation and the installed wrist camera.
+
+1. Stop the robot and disconnect power as required by the equipment instructions. Support the gripper, disconnect its cables, remove and retain the mounting screws, and take off the gripper.
+2. Slide the large opening of the mount over the wrist from the gripper mounting end. Point the camera toward the workspace and align the opening so the wrist connectors remain accessible.
+3. Adjust the position and slowly tighten the M3 bolt until the mount resists gentle rotation.
+4. Connect USB and secure the cable with cable ties so that the connector and glue joints do not carry tension. Leave enough slack for wrist motion and keep the cable clear of the gripper and joint gaps.
+
+<table>
+  <tr>
+    <td width="50%"><img src="assets/hardware/assembly/11.png" width="100%" alt="Final assembly step: tighten the clamp bolt to secure the camera mount to the xArm7 wrist"></td>
+    <td width="50%"><img src="assets/hardware/final.png" width="100%" alt="Final appearance of the wrist camera mounted on xArm7"></td>
+  </tr>
+  <tr><td align="center">Figure 11 · Final assembly step: tighten the wrist clamp.</td><td align="center">Figure 12 · Wrist camera installed.</td></tr>
+</table>
+
+The photos show the secured camera mount before the gripper is reattached and the USB cable is connected. Complete end-effector installation and cable routing before use.
+
+
+## Troubleshooting
+
+| Symptom | Checks and fixes |
+| --- | --- |
+| Board detected, but no video | Disconnect power and check both CSI connectors and latches; verify the board service and `stream` setting |
+| Camera moves or PCB bends | Check for spinning inserts, bottomed-out screws, or pressure on components underneath |
+| Board is loose or USB plug cannot fully seat | Disconnect power, adjust the board position and glue spots, clear the port, and secure the board again |
+| Mount rotates or gripper mounting faces do not sit flush | Check the ring position, clamp nut, and mechanical interference; do not force the fasteners |
+| Connection drops during wrist motion | Check USB cable retention and slack; avoid pulling on connectors or the ribbon cable |
+| Image is out of focus | Rotate the lens manually to adjust focus |
+
+For software diagnostics, see the [usage guide](usage-zh.md). For frame-rate issues, see the [benchmark results](benchmark-results.md).
+
+---
