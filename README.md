@@ -2,18 +2,16 @@
 
 Wrist Camera is a low-cost wrist-mounted RGB camera for **xArm7**, designed to provide a close-up view of the workspace for robot learning. It combines an SC3336 camera, a Luckfox Pico Mini board, and a 3D-printed mount to bring wrist-view observations to manipulation experiments and data-collection setups.
 
-<div style="display: flex; align-items: flex-start; gap: 2%;">
-  <div style="width: 74%; text-align: center;">
-    <img src="docs/assets/hardware/assembly/10.jpg" width="100%" alt="Assembled wrist camera and printed mount before installation on the robot">
-    <br>
-    <em>(a) Desktop assembly</em>
-  </div>
-  <div style="width: 23.44%; text-align: center;">
-    <img src="docs/assets/hardware/final.png" width="100%" alt="Wrist camera mounted on xArm7, before attaching the gripper">
-    <br>
-    <em>(b) Mounted on xArm7</em>
-  </div>
-</div>
+<table>
+  <tr>
+    <td width="76%" align="center" valign="top"><img src="docs/assets/hardware/assembly/10.jpg" width="100%" alt="Assembled wrist camera and printed mount before installation on the robot"></td>
+    <td width="24%" align="center" valign="top"><img src="docs/assets/hardware/final.png" width="100%" alt="Wrist camera mounted on xArm7, before attaching the gripper"></td>
+  </tr>
+  <tr>
+    <td align="center"><em>(a) Desktop assembly</em></td>
+    <td align="center"><em>(b) Mounted on xArm7</em></td>
+  </tr>
+</table>
 
 ## Overview
 
