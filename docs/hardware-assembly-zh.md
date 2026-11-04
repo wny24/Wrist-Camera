@@ -46,17 +46,6 @@ Quantities are for one wrist camera, excluding the robot arm, gripper, and host 
 | 11 | Hot-glue gun | 1 | Apply small glue spots to secure the board | Not listed |
 
 
-### Printed Mount Cost Estimate
-
-The printable STL encloses approximately **55.49 cm³**. Using Bambu Lab PLA Basic at **1.24 g/cm³** and the **US$19.99 per 1 kg** price displayed on the [official US store page](https://bambulab-us.myshopify.com/products/pla-basic-filament) (checked November 4, 2026):
-
-```text
-Solid-part mass = 55.49 × 1.24 = 68.81 g
-Material cost = 68.81 / 1000 × $19.99 ≈ $1.38 per mount
-```
-
-The BOM rounds this to **US$1.40**. This is a fully solid model estimate, not a slicer result. Infill, walls, supports, brims, and purge material change actual consumption. Electricity, printer wear, labor, failed prints, shipping, and taxes are excluded. Regional prices and discounts vary; substitute your actual filament price for a local estimate.
-
 ## Hardware Related Files
 
 | Part / File | Link | Purpose |
