@@ -1,16 +1,10 @@
 # Wrist Camera: A Low-Cost Wrist Camera for xArm7 Robot Learning
 
-## Authors
-
-<p align="center">
-  <a href="https://github.com/wny24">Ningyue Wang</a>,
-  <a href="https://github.com/luccachiang">Guangqi Jiang</a>,
+<p align="left">
+  <a href="https://github.com/wny24">Ningyue Wang</a>,&nbsp;
+  <a href="https://github.com/luccachiang">Guangqi Jiang</a>,&nbsp;
   <a href="https://github.com/Cathyhhh64">Mengyu Chen</a>
-</p>
-
-## Affiliation
-
-<p align="center">
+  &ensp;|&ensp;
   <a href="https://maureenzou.github.io/lab.html">IEI Lab, Tsinghua University</a>
 </p>
 
