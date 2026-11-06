@@ -1,5 +1,19 @@
 # Wrist Camera: A Low-Cost Wrist Camera for xArm7 Robot Learning
 
+## Authors
+
+<p align="center">
+  <a href="https://github.com/wny24">Ningyue Wang</a>,
+  <a href="https://github.com/luccachiang">Guangqi Jiang</a>,
+  <a href="https://github.com/Cathyhhh64">Mengyu Chen</a>
+</p>
+
+## Affiliation
+
+<p align="center">
+  <a href="https://maureenzou.github.io/lab.html">IEI Lab, Tsinghua University</a>
+</p>
+
 Wrist Camera is a low-cost wrist-mounted RGB camera for **xArm7**, designed to provide a close-up view of the workspace for robot learning. It combines an SC3336 camera, a Luckfox Pico Mini board, and a 3D-printed mount to bring wrist-view observations to manipulation experiments and data-collection setups.
 
 <table>
